@@ -1,7 +1,8 @@
 module.exports = ({ env }) => ({
   upload: {
     config: {
-      provider: 'cloudinary',
+      // Usa il provider Cloudinary personalizzato che genera thumbnails via URL
+      provider: 'strapi-provider-upload-cloudinary',
       providerOptions: {
         cloud_name: env('CLOUDINARY_NAME'),
         api_key: env('CLOUDINARY_KEY'),
@@ -16,8 +17,6 @@ module.exports = ({ env }) => ({
         },
         delete: {},
       },
-      // Disabilita la generazione locale dei thumbnails
-      // Cloudinary li genererà on-the-fly tramite URL transformations
       sizeLimit: 250 * 1024 * 1024, // 250mb
     },
   },
