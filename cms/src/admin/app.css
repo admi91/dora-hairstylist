@@ -1,18 +1,28 @@
 /* Fix per mostrare i thumbnails Cloudinary nella Media Library */
 
-/* Forza la visualizzazione delle immagini anche se il browser non riesce a caricarle dal filesystem locale */
-[data-strapi-component="AssetCardBase"] img[src*="cloudinary"] {
+/* Forza la visualizzazione delle immagini Cloudinary */
+img[src*="cloudinary.com"],
+img[src*="res.cloudinary.com"] {
   display: block !important;
   opacity: 1 !important;
   visibility: visible !important;
+  background: #f6f6f9 !important;
+  object-fit: cover !important;
 }
 
-/* Rimuovi l'icona di placeholder per immagini Cloudinary */
-[data-strapi-component="AssetCardBase"] img[src*="cloudinary"] + svg {
+/* Override per tutti i container di immagini */
+[class*="AssetCard"] img[src*="cloudinary"],
+[class*="Card"] img[src*="cloudinary"],
+div[role="button"] img[src*="cloudinary"] {
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  min-height: 100px !important;
+  width: 100% !important;
+}
+
+/* Nascondi eventuali icone di errore per immagini Cloudinary */
+img[src*="cloudinary.com"] ~ svg,
+img[src*="cloudinary.com"] + svg {
   display: none !important;
-}
-
-/* Assicura che le immagini Cloudinary siano visibili */
-img[src*="res.cloudinary.com"] {
-  background: transparent !important;
 }
