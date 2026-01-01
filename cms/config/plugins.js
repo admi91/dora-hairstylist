@@ -8,9 +8,20 @@ module.exports = ({ env }) => ({
         api_secret: env('CLOUDINARY_SECRET'),
       },
       actionOptions: {
-        upload: {},
-        uploadStream: {},
+        upload: {
+          folder: 'strapi-uploads',
+        },
+        uploadStream: {
+          folder: 'strapi-uploads',
+        },
         delete: {},
+      },
+      // Genera thumbnails su Cloudinary invece che localmente
+      breakpoints: {
+        large: 1000,
+        medium: 750,
+        small: 500,
+        thumbnail: 156,
       },
     },
   },
