@@ -9,20 +9,16 @@ module.exports = ({ env }) => ({
       },
       actionOptions: {
         upload: {
-          folder: 'strapi-uploads',
+          folder: 'dora-hairstylist',
         },
         uploadStream: {
-          folder: 'strapi-uploads',
+          folder: 'dora-hairstylist',
         },
         delete: {},
       },
-      // Genera thumbnails su Cloudinary invece che localmente
-      breakpoints: {
-        large: 1000,
-        medium: 750,
-        small: 500,
-        thumbnail: 156,
-      },
+      // Disabilita la generazione locale dei thumbnails
+      // Cloudinary li genererà on-the-fly tramite URL transformations
+      sizeLimit: 250 * 1024 * 1024, // 250mb
     },
   },
 });
