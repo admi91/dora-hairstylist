@@ -1,0 +1,18 @@
+/* Fix per mostrare i thumbnails Cloudinary nella Media Library */
+
+/* Forza la visualizzazione delle immagini anche se il browser non riesce a caricarle dal filesystem locale */
+[data-strapi-component="AssetCardBase"] img[src*="cloudinary"] {
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Rimuovi l'icona di placeholder per immagini Cloudinary */
+[data-strapi-component="AssetCardBase"] img[src*="cloudinary"] + svg {
+  display: none !important;
+}
+
+/* Assicura che le immagini Cloudinary siano visibili */
+img[src*="res.cloudinary.com"] {
+  background: transparent !important;
+}
