@@ -1,8 +1,7 @@
 module.exports = ({ env }) => ({
   upload: {
     config: {
-      // Usa il provider Cloudinary personalizzato che genera thumbnails via URL
-      provider: 'strapi-provider-upload-cloudinary',
+      provider: 'cloudinary',
       providerOptions: {
         cloud_name: env('CLOUDINARY_NAME'),
         api_key: env('CLOUDINARY_KEY'),
