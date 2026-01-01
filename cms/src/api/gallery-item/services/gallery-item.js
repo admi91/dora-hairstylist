@@ -2,4 +2,4 @@
 
 const { createCoreService } = require('@strapi/strapi').factories;
 
-module.exports = createCoreService('api::gallery-item::gallery-item');
+module.exports = createCoreService('api::gallery-item.gallery-item');

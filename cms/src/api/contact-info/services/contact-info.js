@@ -2,4 +2,4 @@
 
 const { createCoreService } = require('@strapi/strapi').factories;
 
-module.exports = createCoreService('api::contact-info::contact-info');
+module.exports = createCoreService('api::contact-info.contact-info');
