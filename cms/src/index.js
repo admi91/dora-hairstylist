@@ -70,5 +70,68 @@ module.exports = {
     } else {
       console.log('✅ Public API permissions already configured');
     }
+
+    // Hook per fixare i thumbnails di Cloudinary
+    strapi.db.lifecycles.subscribe({
+      models: ['plugin::upload.file'],
+      
+      async afterCreate(event) {
+        const { result } = event;
+        
+        // Se il file usa Cloudinary e ha formats
+        if (result.provider === 'cloudinary' && result.formats) {
+          const cloudName = process.env.CLOUDINARY_NAME;
+          
+          // Per ogni formato, genera l'URL Cloudinary on-the-fly
+          Object.keys(result.formats).forEach(formatKey => {
+            const format = result.formats[formatKey];
+            const baseUrl = result.url;
+            
+            // Trasforma l'URL base aggiungendo le trasformazioni Cloudinary
+            if (baseUrl && baseUrl.includes('cloudinary.com')) {
+              let width, height, crop;
+              
+              switch(formatKey) {
+                case 'thumbnail':
+                  width = 156;
+                  height = 156;
+                  crop = 'fill';
+                  break;
+                case 'small':
+                  width = 500;
+                  height = 500;
+                  crop = 'fit';
+                  break;
+                case 'medium':
+                  width = 750;
+                  height = 750;
+                  crop = 'fit';
+                  break;
+                case 'large':
+                  width = 1000;
+                  height = 1000;
+                  crop = 'fit';
+                  break;
+                default:
+                  return;
+              }
+              
+              // Sostituisci l'URL con la versione trasformata di Cloudinary
+              format.url = baseUrl.replace('/upload/', `/upload/w_${width},h_${height},c_${crop}/`);
+            }
+          });
+          
+          // Aggiorna il record nel database con i nuovi URL
+          await strapi.db.query('plugin::upload.file').update({
+            where: { id: result.id },
+            data: {
+              formats: result.formats,
+            },
+          });
+        }
+      },
+    });
+    
+    console.log('✅ Cloudinary thumbnail fix hook attivato');
   },
 };
