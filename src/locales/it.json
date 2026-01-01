@@ -1,0 +1,142 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "Chi Sono",
+    "services": "Servizi",
+    "gallery": "Gallery",
+    "blog": "Blog",
+    "contact": "Contatti"
+  },
+  "hero": {
+    "title": "Trasforma il Tuo Look",
+    "subtitle": "Specialista in Taglio, Colore e Styling",
+    "description": "Benvenuta nel mio studio! Sono Dora, hair stylist professionista con anni di esperienza. Il mio obiettivo è valorizzare la tua bellezza naturale con tagli e colori personalizzati.",
+    "ctaPrimary": "Prenota Appuntamento",
+    "ctaSecondary": "Scopri i Servizi"
+  },
+  "about": {
+    "title": "Chi Sono",
+    "subtitle": "La Tua Hair Stylist di Fiducia",
+    "description": "Sono Dora, hair stylist professionista con oltre 10 anni di esperienza nel settore. La mia passione per l'hair styling nasce da giovane e si è trasformata in una carriera dedicata a valorizzare la bellezza di ogni donna.",
+    "philosophy": "La Mia Filosofia",
+    "philosophyText": "Credo che ogni cliente sia unica e meriti un servizio personalizzato. Il mio approccio si basa sull'ascolto, sulla consulenza professionale e sull'utilizzo delle tecniche più innovative per garantire risultati eccellenti.",
+    "whyChooseMe": "Perché Scegliermi",
+    "whyChooseMeText": "Combinando esperienza, formazione continua e passione per il mio lavoro, offro servizi di alta qualità in un ambiente accogliente e professionale.",
+    "stats": {
+      "experience": "Anni di Esperienza",
+      "clients": "Clienti Soddisfatti",
+      "services": "Servizi Offerti"
+    }
+  },
+  "services": {
+    "title": "I Miei Servizi",
+    "subtitle": "Soluzioni Professionali per Ogni Esigenza",
+    "viewDetails": "Scopri di Più",
+    "bookNow": "Prenota Ora",
+    "includes": "Include:"
+  },
+  "gallery": {
+    "title": "Gallery",
+    "subtitle": "I Miei Lavori",
+    "categories": {
+      "all": "Tutti",
+      "cut": "Tagli",
+      "color": "Colorazioni",
+      "styling": "Styling",
+      "treatments": "Trattamenti"
+    },
+    "viewMore": "Vedi Altri Lavori"
+  },
+  "blog": {
+    "title": "Blog & Consigli",
+    "subtitle": "Suggerimenti e Tendenze dal Mondo dell'Hair Styling",
+    "readMore": "Leggi Articolo",
+    "readTime": "min di lettura",
+    "author": "Scritto da",
+    "date": "Pubblicato il",
+    "relatedPosts": "Articoli Correlati",
+    "backToBlog": "Torna al Blog"
+  },
+  "experience": {
+    "title": "Esperienza & Competenze",
+    "subtitle": "Anni di passione, formazione continua e dedizione all'arte dell'hair styling",
+    "professionalPath": "Percorso Professionale",
+    "technicalSkills": "Competenze Tecniche",
+    "certifications": "Formazione & Certificazioni",
+    "cta": {
+      "title": "Pronta a Trasformare il Tuo Look?",
+      "subtitle": "Prenota la tua consulenza personalizzata e scopri il meglio per i tuoi capelli",
+      "button": "Prenota Ora"
+    },
+    "roles": {
+      "professionalStylist": "Hair Stylist Professionista",
+      "privateStudio": "Dora Hair Stylist - Studio Privato",
+      "description": "Gestione clientela privata con servizi personalizzati di taglio, colore e styling"
+    },
+    "achievements": {
+      "satisfiedClients": "Oltre 500 clienti soddisfatti",
+      "colorSpecialization": "Specializzazione in colorimetria avanzata",
+      "innovativeTechniques": "Tecniche innovative di taglio"
+    },
+    "skills": {
+      "womenCut": "Taglio Donna",
+      "menCut": "Taglio Uomo",
+      "coloring": "Colorazione",
+      "balayage": "Balayage",
+      "hairstyles": "Acconciature",
+      "treatments": "Trattamenti"
+    },
+    "certificationsList": {
+      "professionalCertification": "Certificazione Professionale Hair Stylist",
+      "italianAcademy": "Accademia Italiana Parrucchieri"
+    }
+  },
+  "contact": {
+    "title": "Contattami",
+    "subtitle": "Prenota il Tuo Appuntamento",
+    "info": "Informazioni di Contatto",
+    "hours": "Orari di Apertura",
+    "form": {
+      "name": "Nome Completo",
+      "email": "Email",
+      "phone": "Telefono",
+      "service": "Servizio Richiesto",
+      "selectService": "Seleziona un servizio",
+      "date": "Data Preferita",
+      "message": "Messaggio",
+      "messagePlaceholder": "Descrivi cosa desideri o eventuali richieste particolari...",
+      "submit": "Invia Richiesta",
+      "sending": "Invio in corso...",
+      "success": "Messaggio inviato con successo!",
+      "error": "Errore nell'invio del messaggio"
+    },
+    "location": "Posizione",
+    "findMe": "Dove Trovarmi"
+  },
+  "footer": {
+    "description": "Hair Stylist professionista specializzata in tagli, colorazioni e styling personalizzati.",
+    "quickLinks": "Link Rapidi",
+    "followUs": "Seguimi",
+    "newsletter": "Newsletter",
+    "newsletterText": "Iscriviti per ricevere consigli e offerte esclusive",
+    "emailPlaceholder": "La tua email",
+    "subscribe": "Iscriviti",
+    "copyright": "© 2024 Dora Hair Stylist. Tutti i diritti riservati.",
+    "privacy": "Privacy Policy",
+    "terms": "Termini di Servizio"
+  },
+  "common": {
+    "loading": "Caricamento...",
+    "error": "Si è verificato un errore",
+    "noResults": "Nessun risultato trovato",
+    "viewAll": "Vedi Tutto",
+    "learnMore": "Scopri di Più",
+    "close": "Chiudi",
+    "back": "Indietro",
+    "next": "Avanti",
+    "previous": "Precedente",
+    "search": "Cerca",
+    "filter": "Filtra",
+    "sort": "Ordina"
+  }
+}

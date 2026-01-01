@@ -1,36 +1,38 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import useTranslation from '../hooks/useTranslation'
 
 const Experience = () => {
+  const { t } = useTranslation();
   const experiences = [
     {
       year: '2020 - Presente',
-      role: 'Hair Stylist Professionista',
-      company: 'Dora Hair Stylist - Studio Privato',
-      description: 'Gestione clientela privata con servizi personalizzati di taglio, colore e styling',
+      role: t('experience.roles.professionalStylist'),
+      company: t('experience.roles.privateStudio'),
+      description: t('experience.roles.description'),
       achievements: [
-        'Oltre 500 clienti soddisfatti',
-        'Specializzazione in colorimetria avanzata',
-        'Tecniche innovative di taglio'
+        t('experience.achievements.satisfiedClients'),
+        t('experience.achievements.colorSpecialization'),
+        t('experience.achievements.innovativeTechniques')
       ]
     },
     // Aggiungeremo altre esperienze dal CV
   ]
 
   const skills = [
-    { name: 'Taglio Donna', level: 95 },
-    { name: 'Taglio Uomo', level: 90 },
-    { name: 'Colorazione', level: 98 },
-    { name: 'Balayage', level: 95 },
-    { name: 'Acconciature', level: 90 },
-    { name: 'Trattamenti', level: 92 },
+    { name: t('experience.skills.womenCut'), level: 95 },
+    { name: t('experience.skills.menCut'), level: 90 },
+    { name: t('experience.skills.coloring'), level: 98 },
+    { name: t('experience.skills.balayage'), level: 95 },
+    { name: t('experience.skills.hairstyles'), level: 90 },
+    { name: t('experience.skills.treatments'), level: 92 },
   ]
 
   const certifications = [
     {
-      title: 'Certificazione Professionale Hair Stylist',
+      title: t('experience.certificationsList.professionalCertification'),
       year: '2018',
-      institution: 'Accademia Italiana Parrucchieri'
+      institution: t('experience.certificationsList.italianAcademy')
     },
     // Aggiungeremo altre certificazioni dal CV
   ]
@@ -40,15 +42,15 @@ const Experience = () => {
       <div className="container-custom">
         {/* Title */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">Esperienza & Competenze</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">{t('experience.title')}</h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Anni di passione, formazione continua e dedizione all'arte dell'hair styling
+            {t('experience.subtitle')}
           </p>
         </div>
 
         {/* Experience Timeline */}
         <div className="mb-20">
-          <h3 className="text-3xl font-bold mb-8 text-center">Percorso Professionale</h3>
+          <h3 className="text-3xl font-bold mb-8 text-center">{t('experience.professionalPath')}</h3>
           <div className="space-y-8">
             {experiences.map((exp, index) => (
               <div key={index} className="relative pl-8 border-l-4 border-red-500">
@@ -80,7 +82,7 @@ const Experience = () => {
 
         {/* Skills */}
         <div className="mb-20">
-          <h3 className="text-3xl font-bold mb-8 text-center">Competenze Tecniche</h3>
+          <h3 className="text-3xl font-bold mb-8 text-center">{t('experience.technicalSkills')}</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
             {skills.map((skill, index) => (
               <div key={index}>
@@ -101,7 +103,7 @@ const Experience = () => {
 
         {/* Certifications */}
         <div>
-          <h3 className="text-3xl font-bold mb-8 text-center">Formazione & Certificazioni</h3>
+          <h3 className="text-3xl font-bold mb-8 text-center">{t('experience.certifications')}</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {certifications.map((cert, index) => (
               <div key={index} className="bg-gradient-to-br from-red-50 to-white p-6 rounded-lg border-2 border-red-100 hover:border-red-300 transition-all">
@@ -122,15 +124,15 @@ const Experience = () => {
 
         {/* Call to Action */}
         <div className="mt-16 text-center bg-gradient-to-r from-red-500 to-red-600 rounded-2xl p-12 text-white">
-          <h3 className="text-3xl font-bold mb-4">Pronta a Trasformare il Tuo Look?</h3>
+          <h3 className="text-3xl font-bold mb-4">{t('experience.cta.title')}</h3>
           <p className="text-xl mb-8 text-red-50">
-            Prenota la tua consulenza personalizzata e scopri il meglio per i tuoi capelli
+            {t('experience.cta.subtitle')}
           </p>
           <Link
             to="/contatti"
             className="bg-white text-red-500 px-8 py-4 rounded-lg font-bold text-lg hover:bg-gray-100 transition-all duration-300 shadow-lg inline-block"
           >
-            Prenota Ora
+            {t('experience.cta.button')}
           </Link>
         </div>
       </div>
