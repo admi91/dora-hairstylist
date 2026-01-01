@@ -1,0 +1,45 @@
+{
+  "kind": "collectionType",
+  "collectionName": "carousel_slides",
+  "info": {
+    "singularName": "carousel-slide",
+    "pluralName": "carousel-slides",
+    "displayName": "Carousel Slide",
+    "description": "Slides del carousel homepage"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "subtitle": {
+      "type": "string"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": ["images"]
+    },
+    "ctaText": {
+      "type": "string",
+      "default": "Scopri di più"
+    },
+    "ctaLink": {
+      "type": "string",
+      "default": "/contatti"
+    },
+    "order": {
+      "type": "integer",
+      "default": 0
+    },
+    "active": {
+      "type": "boolean",
+      "default": true
+    }
+  }
+}

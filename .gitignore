@@ -22,3 +22,14 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Strapi CMS
+cms/.tmp
+cms/.cache
+cms/build
+cms/.strapi-updater.json
+cms/.env
+cms/package-lock.json
+cms/yarn.lock
+cms/exports
+cms/*.db

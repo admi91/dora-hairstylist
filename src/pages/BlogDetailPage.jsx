@@ -1,14 +1,25 @@
-import React, { useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
+import { getBlogPostById } from '../services/api'
 
 const BlogDetailPage = () => {
   const { id } = useParams()
+  const [article, setArticle] = useState(null)
+  const [loading, setLoading] = useState(true)
 
-  // Scroll to top on page load
+  // Carica l'articolo da Strapi
   useEffect(() => {
-    window.scrollTo(0, 0)
+    const loadArticle = async () => {
+      setLoading(true)
+      window.scrollTo(0, 0)
+      const post = await getBlogPostById(id)
+      setArticle(post)
+      setLoading(false)
+    }
+    
+    loadArticle()
   }, [id])
 
   // Database articoli completo
