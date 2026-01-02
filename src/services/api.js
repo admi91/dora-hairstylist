@@ -7,9 +7,6 @@ const API_URL = import.meta.env.VITE_STRAPI_URL ||
                   ? 'https://dora-hairstylist-production.up.railway.app'
                   : 'http://localhost:1337');
 
-console.log('API_URL configurato:', API_URL);
-console.log('Environment mode:', import.meta.env.MODE);
-
 // Crea un'istanza axios con configurazione base
 const api = axios.create({
   baseURL: `${API_URL}/api`,
@@ -203,10 +200,7 @@ export const getAbout = async () => {
       },
     });
     
-    console.log('Risposta Strapi completa:', response.data);
-    
     const aboutRaw = response.data.data;
-    console.log('About raw:', aboutRaw);
     
     // Estrai direttamente gli attributi
     const about = {
@@ -219,13 +213,11 @@ export const getAbout = async () => {
     
     // Estrai l'immagine dal nesting di Strapi
     const imageData = aboutRaw.attributes.profileImage?.data;
-    console.log('Image data:', imageData);
     
     if (imageData) {
       about.profileImage = getImageUrl(imageData.attributes || imageData);
     }
     
-    console.log('About finale:', about);
     return about;
   } catch (error) {
     console.error('Errore nel caricamento about:', error);
