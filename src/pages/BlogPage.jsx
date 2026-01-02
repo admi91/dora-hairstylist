@@ -9,28 +9,20 @@ const BlogPage = () => {
   const { t } = useTranslation('blog')
   const [blogPosts, setBlogPosts] = useState([])
   const [loading, setLoading] = useState(true)
-  const [activeCategory, setActiveCategory] = useState(t('categories.all'))
-
-  const categories = [
-    t('categories.all'),
-    t('categories.trends'),
-    t('categories.tutorials'),
-    t('categories.tips'),
-    t('categories.treatments')
-  ]
+  const [activeCategory, setActiveCategory] = useState('all')
 
   // Carica i blog posts all'avvio e quando cambia la categoria
   useEffect(() => {
     const loadPosts = async () => {
       setLoading(true)
-      const category = activeCategory === t('categories.all') ? null : activeCategory
+      const category = activeCategory === 'all' ? null : activeCategory
       const posts = await getBlogPosts(category)
-      setBlogPosts(posts)
+      setBlogPosts(posts || [])
       setLoading(false)
     }
     
     loadPosts()
-  }, [activeCategory, t])
+  }, [activeCategory])
 
   if (loading) {
     return (
@@ -47,6 +39,9 @@ const BlogPage = () => {
     )
   }
 
+  // Definisci le categorie con chiavi
+  const categoryKeys = ['all', 'trends', 'tutorials', 'tips', 'treatments']
+
   return (
     <>
       <Header />
@@ -62,17 +57,17 @@ const BlogPage = () => {
 
           {/* Category Filter */}
           <div className="flex flex-wrap justify-center gap-4 mb-16">
-            {categories.map((category) => (
+            {categoryKeys.map((categoryKey) => (
               <button
-                key={category}
-                onClick={() => setActiveCategory(category)}
+                key={categoryKey}
+                onClick={() => setActiveCategory(categoryKey)}
                 className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 ${
-                  activeCategory === category
+                  activeCategory === categoryKey
                     ? 'bg-red-500 text-white shadow-lg'
                     : 'bg-white text-gray-700 hover:bg-gray-100'
                 }`}
               >
-                {category}
+                {t(`categories.${categoryKey}`)}
               </button>
             ))}
           </div>
