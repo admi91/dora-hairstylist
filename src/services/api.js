@@ -1,7 +1,14 @@
 import axios from 'axios';
 
-// Base URL per Strapi (locale in development, produzione su Railway)
-const API_URL = import.meta.env.VITE_STRAPI_URL || 'http://localhost:1337';
+// Base URL per Strapi
+// In produzione usa Railway, in development usa localhost se disponibile
+const API_URL = import.meta.env.VITE_STRAPI_URL || 
+                (import.meta.env.MODE === 'production' 
+                  ? 'https://dora-hairstylist-production.up.railway.app'
+                  : 'http://localhost:1337');
+
+console.log('API_URL configurato:', API_URL);
+console.log('Environment mode:', import.meta.env.MODE);
 
 // Crea un'istanza axios con configurazione base
 const api = axios.create({
