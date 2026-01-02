@@ -7,6 +7,8 @@ import aboutBundle from '../locales/components/about.json';
 import galleryBundle from '../locales/components/gallery.json';
 import experienceBundle from '../locales/components/experience.json';
 import footerBundle from '../locales/components/footer.json';
+import contactBundle from '../locales/components/contact.json';
+import blogBundle from '../locales/components/blog.json';
 
 // Mappa dei bundle disponibili
 const bundles = {
@@ -16,6 +18,8 @@ const bundles = {
   gallery: galleryBundle,
   experience: experienceBundle,
   footer: footerBundle,
+  contact: contactBundle,
+  blog: blogBundle,
 };
 
 /**

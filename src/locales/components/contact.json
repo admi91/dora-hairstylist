@@ -1,0 +1,37 @@
+{
+  "it": {
+    "title": "Contatti",
+    "subtitle": "Prenota il tuo appuntamento o contattaci per maggiori informazioni",
+    "form": {
+      "title": "Inviaci un messaggio",
+      "name": "Nome",
+      "email": "Email",
+      "phone": "Telefono",
+      "message": "Messaggio",
+      "submit": "Invia Messaggio",
+      "successMessage": "Grazie per il tuo messaggio! Ti contatteremo presto."
+    },
+    "info": {
+      "title": "Informazioni di Contatto",
+      "address": {
+        "label": "Indirizzo",
+        "line1": "Via Esempio 123",
+        "line2": "00100 Roma, Italia"
+      },
+      "phone": {
+        "label": "Telefono",
+        "number": "+39 123 456 7890"
+      },
+      "email": {
+        "label": "Email",
+        "address": "info@dorahairstylist.it"
+      },
+      "hours": {
+        "label": "Orari",
+        "weekdays": "Lun - Ven: 9:00 - 19:00",
+        "saturday": "Sabato: 9:00 - 18:00",
+        "sunday": "Domenica: Chiuso"
+      }
+    }
+  }
+}

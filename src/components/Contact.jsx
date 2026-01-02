@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
+import { useTranslation } from '../hooks/useTranslation'
 
 const Contact = () => {
+  const { t } = useTranslation('contact')
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -11,7 +13,7 @@ const Contact = () => {
   const handleSubmit = (e) => {
     e.preventDefault()
     // Qui puoi aggiungere la logica per inviare il form
-    alert('Grazie per il tuo messaggio! Ti contatteremo presto.')
+    alert(t('form.successMessage'))
     setFormData({ name: '', email: '', phone: '', message: '' })
   }
 
@@ -26,20 +28,20 @@ const Contact = () => {
     <section className="py-20 bg-gray-50">
       <div className="container-custom">
         <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">Contatti</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">{t('title')}</h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Prenota il tuo appuntamento o contattaci per maggiori informazioni
+            {t('subtitle')}
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Contact Form */}
           <div className="bg-white p-8 rounded-lg shadow-lg">
-            <h3 className="text-2xl font-semibold mb-6">Inviaci un messaggio</h3>
+            <h3 className="text-2xl font-semibold mb-6">{t('form.title')}</h3>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
-                  Nome *
+                  {t('form.name')} *
                 </label>
                 <input
                   type="text"
@@ -54,7 +56,7 @@ const Contact = () => {
 
               <div>
                 <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                  Email *
+                  {t('form.email')} *
                 </label>
                 <input
                   type="email"
@@ -69,7 +71,7 @@ const Contact = () => {
 
               <div>
                 <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
-                  Telefono
+                  {t('form.phone')}
                 </label>
                 <input
                   type="tel"
@@ -83,7 +85,7 @@ const Contact = () => {
 
               <div>
                 <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
-                  Messaggio *
+                  {t('form.message')} *
                 </label>
                 <textarea
                   id="message"
@@ -97,7 +99,7 @@ const Contact = () => {
               </div>
 
               <button type="submit" className="btn-primary w-full">
-                Invia Messaggio
+                {t('form.submit')}
               </button>
             </form>
           </div>
@@ -105,7 +107,7 @@ const Contact = () => {
           {/* Contact Info */}
           <div className="space-y-8">
             <div>
-              <h3 className="text-2xl font-semibold mb-6">Informazioni di Contatto</h3>
+              <h3 className="text-2xl font-semibold mb-6">{t('info.title')}</h3>
               
               <div className="space-y-6">
                 {/* Address */}
@@ -117,10 +119,10 @@ const Contact = () => {
                     </svg>
                   </div>
                   <div>
-                    <h4 className="font-semibold text-lg mb-1">Indirizzo</h4>
+                    <h4 className="font-semibold text-lg mb-1">{t('info.address.label')}</h4>
                     <p className="text-gray-600">
-                      Via Esempio 123<br />
-                      00100 Roma, Italia
+                      {t('info.address.line1')}<br />
+                      {t('info.address.line2')}
                     </p>
                   </div>
                 </div>
@@ -133,8 +135,8 @@ const Contact = () => {
                     </svg>
                   </div>
                   <div>
-                    <h4 className="font-semibold text-lg mb-1">Telefono</h4>
-                    <p className="text-gray-600">+39 123 456 7890</p>
+                    <h4 className="font-semibold text-lg mb-1">{t('info.phone.label')}</h4>
+                    <p className="text-gray-600">{t('info.phone.number')}</p>
                   </div>
                 </div>
 
@@ -146,8 +148,8 @@ const Contact = () => {
                     </svg>
                   </div>
                   <div>
-                    <h4 className="font-semibold text-lg mb-1">Email</h4>
-                    <p className="text-gray-600">info@dorahairstylist.it</p>
+                    <h4 className="font-semibold text-lg mb-1">{t('info.email.label')}</h4>
+                    <p className="text-gray-600">{t('info.email.address')}</p>
                   </div>
                 </div>
 
@@ -159,11 +161,11 @@ const Contact = () => {
                     </svg>
                   </div>
                   <div>
-                    <h4 className="font-semibold text-lg mb-1">Orari</h4>
+                    <h4 className="font-semibold text-lg mb-1">{t('info.hours.label')}</h4>
                     <p className="text-gray-600">
-                      Lun - Ven: 9:00 - 19:00<br />
-                      Sabato: 9:00 - 18:00<br />
-                      Domenica: Chiuso
+                      {t('info.hours.weekdays')}<br />
+                      {t('info.hours.saturday')}<br />
+                      {t('info.hours.sunday')}
                     </p>
                   </div>
                 </div>

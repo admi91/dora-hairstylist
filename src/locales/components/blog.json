@@ -1,0 +1,26 @@
+{
+  "it": {
+    "title": "Il Nostro Blog",
+    "subtitle": "Consigli, tendenze e novità dal mondo dell'hair styling. Scopri tutti i segreti per capelli perfetti!",
+    "categories": {
+      "all": "Tutti",
+      "trends": "Tendenze",
+      "tutorials": "Tutorial",
+      "tips": "Consigli",
+      "treatments": "Trattamenti"
+    },
+    "featured": "In Evidenza",
+    "readTime": "min di lettura",
+    "readArticle": "Leggi l'Articolo",
+    "read": "Leggi",
+    "loading": "Caricamento articoli...",
+    "noArticles": "Nessun articolo disponibile in questa categoria",
+    "adminLink": "Vai su Strapi Admin per aggiungere contenuti",
+    "newsletter": {
+      "title": "Resta Aggiornata!",
+      "subtitle": "Iscriviti alla newsletter per ricevere consigli, offerte esclusive e le ultime tendenze",
+      "placeholder": "La tua email",
+      "submit": "Iscriviti"
+    }
+  }
+}
