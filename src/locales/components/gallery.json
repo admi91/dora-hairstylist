@@ -1,0 +1,13 @@
+{
+  "title": "GALLERIA",
+  "subtitle": "Esplora la nostra galleria di creazioni, dove ogni taglio e colore racconta una storia unica",
+  "categories": {
+    "all": "Tutti",
+    "cuts": "Tagli",
+    "color": "Colore",
+    "styling": "Styling",
+    "treatments": "Trattamenti"
+  },
+  "loading": "Caricamento gallery...",
+  "noImages": "Nessuna immagine disponibile in questa categoria"
+}

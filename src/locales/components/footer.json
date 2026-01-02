@@ -1,0 +1,18 @@
+{
+  "brand": {
+    "name": "Dora Hair Stylist",
+    "tagline": "L'arte di valorizzare la tua bellezza con stile ed eleganza"
+  },
+  "sections": {
+    "quickLinks": "Link Rapidi",
+    "followUs": "Seguici"
+  },
+  "links": {
+    "gallery": "Galleria",
+    "portfolio": "Portfolio",
+    "blog": "Blog",
+    "experience": "Esperienza",
+    "contacts": "Contatti"
+  },
+  "copyright": "Dora Hairstylist. Tutti i diritti riservati."
+}

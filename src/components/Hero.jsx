@@ -1,7 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import useTranslation from '../hooks/useTranslation'
 
 const Hero = () => {
+  const { t } = useTranslation('hero')
+
   return (
     <section className="relative h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900">
       {/* Background overlay */}
@@ -17,13 +20,13 @@ const Hero = () => {
           />
         </div>
         <p className="text-xl md:text-2xl mb-8 text-gray-200 max-w-2xl mx-auto">
-          L'arte di valorizzare la tua bellezza con stile ed eleganza
+          {t('subtitle')}
         </p>
         <Link
           to="/galleria"
           className="btn-primary text-lg inline-block"
         >
-          Scopri la Galleria
+          {t('ctaButton')}
         </Link>
       </div>
 

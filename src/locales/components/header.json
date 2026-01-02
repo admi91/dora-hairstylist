@@ -1,0 +1,10 @@
+{
+  "menuItems": {
+    "home": "Home",
+    "gallery": "Galleria",
+    "portfolio": "Portfolio",
+    "blog": "Blog",
+    "experience": "Esperienza",
+    "contacts": "Contatti"
+  }
+}

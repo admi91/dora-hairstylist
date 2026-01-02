@@ -1,7 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import useTranslation from '../hooks/useTranslation'
 
 const Footer = () => {
+  const { t } = useTranslation('footer')
+
   return (
     <footer className="bg-gray-900 text-white py-12">
       <div className="container-custom">
@@ -11,25 +14,25 @@ const Footer = () => {
             <Link to="/">
               <img 
                 src="/logo.svg" 
-                alt="Dora Hair Stylist" 
+                alt={t('brand.name')}
                 className="h-16 mb-4 brightness-0 invert"
               />
             </Link>
             <p className="text-gray-400">
-              L'arte di valorizzare la tua bellezza con stile ed eleganza
+              {t('brand.tagline')}
             </p>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-lg font-semibold mb-4">Link Rapidi</h4>
+            <h4 className="text-lg font-semibold mb-4">{t('sections.quickLinks')}</h4>
             <ul className="space-y-2">
               <li>
                 <Link
                   to="/galleria"
                   className="text-gray-400 hover:text-white transition"
                 >
-                  Galleria
+                  {t('links.gallery')}
                 </Link>
               </li>
               <li>
@@ -37,7 +40,7 @@ const Footer = () => {
                   to="/portfolio"
                   className="text-gray-400 hover:text-white transition"
                 >
-                  Portfolio
+                  {t('links.portfolio')}
                 </Link>
               </li>
               <li>
@@ -45,7 +48,7 @@ const Footer = () => {
                   to="/blog"
                   className="text-gray-400 hover:text-white transition"
                 >
-                  Blog
+                  {t('links.blog')}
                 </Link>
               </li>
               <li>
@@ -53,7 +56,7 @@ const Footer = () => {
                   to="/esperienza"
                   className="text-gray-400 hover:text-white transition"
                 >
-                  Esperienza
+                  {t('links.experience')}
                 </Link>
               </li>
               <li>
@@ -61,7 +64,7 @@ const Footer = () => {
                   to="/contatti"
                   className="text-gray-400 hover:text-white transition"
                 >
-                  Contatti
+                  {t('links.contacts')}
                 </Link>
               </li>
             </ul>
@@ -69,7 +72,7 @@ const Footer = () => {
 
           {/* Social */}
           <div>
-            <h4 className="text-lg font-semibold mb-4">Seguici</h4>
+            <h4 className="text-lg font-semibold mb-4">{t('sections.followUs')}</h4>
             <div className="flex space-x-4">
               <a href="#" className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-gray-700 transition">
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -87,7 +90,7 @@ const Footer = () => {
 
         {/* Copyright */}
         <div className="border-t border-gray-800 pt-8 text-center text-gray-400">
-          <p>&copy; {new Date().getFullYear()} Dora Hairstylist. Tutti i diritti riservati.</p>
+          <p>&copy; {new Date().getFullYear()} {t('copyright')}</p>
         </div>
       </div>
     </footer>

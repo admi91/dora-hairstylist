@@ -1,11 +1,19 @@
 import React, { useState, useEffect } from 'react'
 import { getGalleryItems } from '../services/api'
+import useTranslation from '../hooks/useTranslation'
 
 const Gallery = () => {
+  const { t } = useTranslation('gallery')
   const [galleryItems, setGalleryItems] = useState([])
   const [loading, setLoading] = useState(true)
-  const categories = ['Tutti', 'Tagli', 'Colore', 'Styling', 'Trattamenti']
-  const [activeCategory, setActiveCategory] = useState('Tutti')
+  const categories = [
+    t('categories.all'),
+    t('categories.cuts'),
+    t('categories.color'),
+    t('categories.styling'),
+    t('categories.treatments')
+  ]
+  const [activeCategory, setActiveCategory] = useState(t('categories.all'))
 
   // Carica gli items dalla API quando cambia la categoria
   useEffect(() => {
@@ -28,7 +36,7 @@ const Gallery = () => {
         <div className="container-custom">
           <div className="text-center">
             <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-gray-900 mx-auto"></div>
-            <p className="mt-4 text-gray-600">Caricamento gallery...</p>
+            <p className="mt-4 text-gray-600">{t('loading')}</p>
           </div>
         </div>
       </section>
@@ -40,9 +48,9 @@ const Gallery = () => {
       <div className="container-custom">
         {/* Title */}
         <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">GALLERIA</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">{t('title')}</h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Esplora la nostra galleria di creazioni, dove ogni taglio e colore racconta una storia unica
+            {t('subtitle')}
           </p>
         </div>
 
@@ -67,7 +75,7 @@ const Gallery = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredItems.length === 0 ? (
             <div className="col-span-full text-center py-12">
-              <p className="text-gray-600 text-lg">Nessuna immagine disponibile in questa categoria</p>
+              <p className="text-gray-600 text-lg">{t('noImages')}</p>
             </div>
           ) : (
             filteredItems.map((item) => (

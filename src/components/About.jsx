@@ -1,6 +1,9 @@
 import React from 'react'
+import useTranslation from '../hooks/useTranslation'
 
 const About = () => {
+  const { t } = useTranslation('about')
+
   return (
     <section className="py-20 bg-white">
       <div className="container-custom">
@@ -19,34 +22,28 @@ const About = () => {
 
           {/* Content */}
           <div>
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">Portfolio</h2>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">{t('title')}</h2>
             <div className="space-y-4 text-gray-700 text-lg leading-relaxed">
               <p>
-                Benvenuti da <strong>Dora Hairstylist</strong>, dove la passione per la bellezza 
-                incontra l'eccellenza professionale. Con anni di esperienza nel settore dell'hair styling, 
-                sono dedicata a creare look unici che esaltano la personalità di ogni cliente.
+                {t('intro.welcome')} <strong>{t('intro.brand')}</strong>, {t('intro.description')}
               </p>
               <p>
-                Dal taglio alla colorazione, dalle acconciature speciali ai trattamenti innovativi, 
-                offriamo servizi personalizzati utilizzando prodotti di altissima qualità e le tecniche 
-                più avanzate del settore.
+                {t('services.paragraph1')}
               </p>
               <p>
-                Il nostro obiettivo è far sentire ogni persona speciale, valorizzando la sua bellezza 
-                naturale con stile e creatività. Vieni a trovarci e lasciati coccolare in un ambiente 
-                elegante e accogliente.
+                {t('services.paragraph2')}
               </p>
             </div>
 
             {/* Features */}
             <div className="grid grid-cols-2 gap-6 mt-8">
               <div>
-                <div className="text-4xl font-bold text-gray-900">15+</div>
-                <div className="text-gray-600">Anni di Esperienza</div>
+                <div className="text-4xl font-bold text-gray-900">{t('stats.experience.value')}</div>
+                <div className="text-gray-600">{t('stats.experience.label')}</div>
               </div>
               <div>
-                <div className="text-4xl font-bold text-gray-900">1000+</div>
-                <div className="text-gray-600">Clienti Soddisfatti</div>
+                <div className="text-4xl font-bold text-gray-900">{t('stats.clients.value')}</div>
+                <div className="text-gray-600">{t('stats.clients.label')}</div>
               </div>
             </div>
           </div>

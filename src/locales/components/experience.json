@@ -1,0 +1,36 @@
+{
+  "title": "Esperienza & Competenze",
+  "subtitle": "Anni di passione, formazione continua e dedizione all'arte dell'hair styling",
+  "sections": {
+    "professionalPath": "Percorso Professionale",
+    "technicalSkills": "Competenze Tecniche",
+    "certifications": "Formazione & Certificazioni"
+  },
+  "roles": {
+    "professionalStylist": "Hair Stylist Professionista",
+    "privateStudio": "Dora Hair Stylist - Studio Privato",
+    "description": "Gestione clientela privata con servizi personalizzati di taglio, colore e styling"
+  },
+  "achievements": {
+    "satisfiedClients": "Oltre 500 clienti soddisfatti",
+    "colorSpecialization": "Specializzazione in colorimetria avanzata",
+    "innovativeTechniques": "Tecniche innovative di taglio"
+  },
+  "skills": {
+    "womenCut": "Taglio Donna",
+    "menCut": "Taglio Uomo",
+    "coloring": "Colorazione",
+    "balayage": "Balayage",
+    "hairstyles": "Acconciature",
+    "treatments": "Trattamenti"
+  },
+  "certificationsList": {
+    "professionalCertification": "Certificazione Professionale Hair Stylist",
+    "italianAcademy": "Accademia Italiana Parrucchieri"
+  },
+  "cta": {
+    "title": "Pronta a Trasformare il Tuo Look?",
+    "subtitle": "Prenota la tua consulenza personalizzata e scopri il meglio per i tuoi capelli",
+    "button": "Prenota Ora"
+  }
+}

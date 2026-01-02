@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
+import useTranslation from '../hooks/useTranslation'
 
 const Header = () => {
+  const { t } = useTranslation('header')
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const location = useLocation()
@@ -17,12 +19,12 @@ const Header = () => {
   }, [])
 
   const menuItems = [
-    { name: 'Home', path: '/' },
-    { name: 'Galleria', path: '/galleria' },
-    { name: 'Portfolio', path: '/portfolio' },
-    { name: 'Blog', path: '/blog' },
-    { name: 'Esperienza', path: '/esperienza' },
-    { name: 'Contatti', path: '/contatti' },
+    { name: t('menuItems.home'), path: '/' },
+    { name: t('menuItems.gallery'), path: '/galleria' },
+    { name: t('menuItems.portfolio'), path: '/portfolio' },
+    { name: t('menuItems.blog'), path: '/blog' },
+    { name: t('menuItems.experience'), path: '/esperienza' },
+    { name: t('menuItems.contacts'), path: '/contatti' },
   ]
 
   const shouldBeTransparent = isHomePage && !isScrolled

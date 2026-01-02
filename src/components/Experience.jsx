@@ -3,36 +3,36 @@ import { Link } from 'react-router-dom'
 import useTranslation from '../hooks/useTranslation'
 
 const Experience = () => {
-  const { t } = useTranslation();
+  const { t } = useTranslation('experience');
   const experiences = [
     {
       year: '2020 - Presente',
-      role: t('experience.roles.professionalStylist'),
-      company: t('experience.roles.privateStudio'),
-      description: t('experience.roles.description'),
+      role: t('roles.professionalStylist'),
+      company: t('roles.privateStudio'),
+      description: t('roles.description'),
       achievements: [
-        t('experience.achievements.satisfiedClients'),
-        t('experience.achievements.colorSpecialization'),
-        t('experience.achievements.innovativeTechniques')
+        t('achievements.satisfiedClients'),
+        t('achievements.colorSpecialization'),
+        t('achievements.innovativeTechniques')
       ]
     },
     // Aggiungeremo altre esperienze dal CV
   ]
 
   const skills = [
-    { name: t('experience.skills.womenCut'), level: 95 },
-    { name: t('experience.skills.menCut'), level: 90 },
-    { name: t('experience.skills.coloring'), level: 98 },
-    { name: t('experience.skills.balayage'), level: 95 },
-    { name: t('experience.skills.hairstyles'), level: 90 },
-    { name: t('experience.skills.treatments'), level: 92 },
+    { name: t('skills.womenCut'), level: 95 },
+    { name: t('skills.menCut'), level: 90 },
+    { name: t('skills.coloring'), level: 98 },
+    { name: t('skills.balayage'), level: 95 },
+    { name: t('skills.hairstyles'), level: 90 },
+    { name: t('skills.treatments'), level: 92 },
   ]
 
   const certifications = [
     {
-      title: t('experience.certificationsList.professionalCertification'),
+      title: t('certificationsList.professionalCertification'),
       year: '2018',
-      institution: t('experience.certificationsList.italianAcademy')
+      institution: t('certificationsList.italianAcademy')
     },
     // Aggiungeremo altre certificazioni dal CV
   ]
@@ -42,15 +42,15 @@ const Experience = () => {
       <div className="container-custom">
         {/* Title */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">{t('experience.title')}</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">{t('title')}</h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            {t('experience.subtitle')}
+            {t('subtitle')}
           </p>
         </div>
 
         {/* Experience Timeline */}
         <div className="mb-20">
-          <h3 className="text-3xl font-bold mb-8 text-center">{t('experience.professionalPath')}</h3>
+          <h3 className="text-3xl font-bold mb-8 text-center">{t('sections.professionalPath')}</h3>
           <div className="space-y-8">
             {experiences.map((exp, index) => (
               <div key={index} className="relative pl-8 border-l-4 border-red-500">
@@ -82,7 +82,7 @@ const Experience = () => {
 
         {/* Skills */}
         <div className="mb-20">
-          <h3 className="text-3xl font-bold mb-8 text-center">{t('experience.technicalSkills')}</h3>
+          <h3 className="text-3xl font-bold mb-8 text-center">{t('sections.technicalSkills')}</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
             {skills.map((skill, index) => (
               <div key={index}>
@@ -103,7 +103,7 @@ const Experience = () => {
 
         {/* Certifications */}
         <div>
-          <h3 className="text-3xl font-bold mb-8 text-center">{t('experience.certifications')}</h3>
+          <h3 className="text-3xl font-bold mb-8 text-center">{t('sections.certifications')}</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {certifications.map((cert, index) => (
               <div key={index} className="bg-gradient-to-br from-red-50 to-white p-6 rounded-lg border-2 border-red-100 hover:border-red-300 transition-all">
@@ -124,15 +124,15 @@ const Experience = () => {
 
         {/* Call to Action */}
         <div className="mt-16 text-center bg-gradient-to-r from-red-500 to-red-600 rounded-2xl p-12 text-white">
-          <h3 className="text-3xl font-bold mb-4">{t('experience.cta.title')}</h3>
+          <h3 className="text-3xl font-bold mb-4">{t('cta.title')}</h3>
           <p className="text-xl mb-8 text-red-50">
-            {t('experience.cta.subtitle')}
+            {t('cta.subtitle')}
           </p>
           <Link
             to="/contatti"
             className="bg-white text-red-500 px-8 py-4 rounded-lg font-bold text-lg hover:bg-gray-100 transition-all duration-300 shadow-lg inline-block"
           >
-            {t('experience.cta.button')}
+            {t('cta.button')}
           </Link>
         </div>
       </div>

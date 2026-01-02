@@ -1,0 +1,22 @@
+{
+  "title": "Portfolio",
+  "intro": {
+    "welcome": "Benvenuti da",
+    "brand": "Dora Hairstylist",
+    "description": "dove la passione per la bellezza incontra l'eccellenza professionale. Con anni di esperienza nel settore dell'hair styling, sono dedicata a creare look unici che esaltano la personalità di ogni cliente."
+  },
+  "services": {
+    "paragraph1": "Dal taglio alla colorazione, dalle acconciature speciali ai trattamenti innovativi, offriamo servizi personalizzati utilizzando prodotti di altissima qualità e le tecniche più avanzate del settore.",
+    "paragraph2": "Il nostro obiettivo è far sentire ogni persona speciale, valorizzando la sua bellezza naturale con stile e creatività. Vieni a trovarci e lasciati coccolare in un ambiente elegante e accogliente."
+  },
+  "stats": {
+    "experience": {
+      "value": "15+",
+      "label": "Anni di Esperienza"
+    },
+    "clients": {
+      "value": "1000+",
+      "label": "Clienti Soddisfatti"
+    }
+  }
+}
