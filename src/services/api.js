@@ -196,12 +196,30 @@ export const getAbout = async () => {
       },
     });
     
-    const about = formatStrapiData(response.data.data);
+    console.log('Risposta Strapi completa:', response.data);
     
-    return {
-      ...about,
-      profileImage: getImageUrl(about.profileImage?.data?.attributes || about.profileImage?.data),
+    const aboutRaw = response.data.data;
+    console.log('About raw:', aboutRaw);
+    
+    // Estrai direttamente gli attributi
+    const about = {
+      id: aboutRaw.id,
+      title: aboutRaw.attributes.title,
+      description: aboutRaw.attributes.description,
+      yearsExperience: aboutRaw.attributes.yearsExperience,
+      happyClients: aboutRaw.attributes.happyClients,
     };
+    
+    // Estrai l'immagine dal nesting di Strapi
+    const imageData = aboutRaw.attributes.profileImage?.data;
+    console.log('Image data:', imageData);
+    
+    if (imageData) {
+      about.profileImage = getImageUrl(imageData.attributes || imageData);
+    }
+    
+    console.log('About finale:', about);
+    return about;
   } catch (error) {
     console.error('Errore nel caricamento about:', error);
     return null;

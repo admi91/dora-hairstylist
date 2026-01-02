@@ -10,6 +10,7 @@ const About = () => {
   useEffect(() => {
     const loadAbout = async () => {
       const data = await getAbout()
+      console.log('About data ricevuta:', data)
       if (data) {
         setAboutData(data)
       }
