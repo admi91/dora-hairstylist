@@ -44,8 +44,15 @@ export const useTranslation = (component) => {
       return key;
     }
 
+    // Accedi prima alla lingua corrente nel bundle
+    const translations = bundle[locale];
+    if (!translations) {
+      console.warn(`Locale ${locale} not found in bundle for component: ${component}`);
+      return key;
+    }
+
     const keys = key.split('.');
-    let value = bundle;
+    let value = translations;
 
     for (const k of keys) {
       if (value && typeof value === 'object' && k in value) {
