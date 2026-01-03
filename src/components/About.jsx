@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import ReactMarkdown from 'react-markdown'
 import { useTranslation } from '../hooks/useTranslation'
 import { getAbout } from '../services/api'
 
@@ -83,10 +84,9 @@ const About = () => {
               {aboutData?.title || t('title')}
             </h2>
             {aboutData?.description ? (
-              <div 
-                className="prose prose-lg max-w-none text-gray-700"
-                dangerouslySetInnerHTML={{ __html: aboutData.description }} 
-              />
+              <div className="prose prose-lg max-w-none text-gray-700">
+                <ReactMarkdown>{aboutData.description}</ReactMarkdown>
+              </div>
             ) : (
               <div className="space-y-4 text-gray-700 text-lg leading-relaxed">
                 <p>
