@@ -242,7 +242,9 @@ export const getExperience = async () => {
   try {
     const response = await api.get('/experience', {
       params: {
-        populate: '*',
+        'populate[experiences]': '*',
+        'populate[skills]': '*',
+        'populate[certifications]': '*',
       },
     });
     
