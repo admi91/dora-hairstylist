@@ -79,26 +79,27 @@ const About = () => {
 
           {/* Content */}
           <div>
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
               {aboutData?.title || t('title')}
             </h2>
-            <div className="space-y-4 text-gray-700 text-lg leading-relaxed prose prose-invert max-w-none">
-              {aboutData?.description ? (
-                <div dangerouslySetInnerHTML={{ __html: aboutData.description }} />
-              ) : (
-                <>
-                  <p>
-                    {t('intro.welcome')} <strong>{t('intro.brand')}</strong>, {t('intro.description')}
-                  </p>
-                  <p>
-                    {t('services.paragraph1')}
-                  </p>
-                  <p>
-                    {t('services.paragraph2')}
-                  </p>
-                </>
-              )}
-            </div>
+            {aboutData?.description ? (
+              <div 
+                className="prose prose-lg max-w-none text-gray-700"
+                dangerouslySetInnerHTML={{ __html: aboutData.description }} 
+              />
+            ) : (
+              <div className="space-y-4 text-gray-700 text-lg leading-relaxed">
+                <p>
+                  {t('intro.welcome')} <strong>{t('intro.brand')}</strong>, {t('intro.description')}
+                </p>
+                <p>
+                  {t('services.paragraph1')}
+                </p>
+                <p>
+                  {t('services.paragraph2')}
+                </p>
+              </div>
+            )}
 
             {/* Features */}
             <div className="grid grid-cols-2 gap-6 mt-8">
