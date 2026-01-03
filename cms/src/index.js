@@ -44,6 +44,7 @@ module.exports = {
       'api::service.service.findOne',
       'api::about.about.find',
       'api::contact-info.contact-info.find',
+      'api::experience.experience.find',
     ];
 
     // Check which permissions need to be created
