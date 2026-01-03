@@ -237,6 +237,22 @@ export const getContactInfo = async () => {
   }
 };
 
+// ==================== EXPERIENCE (Single Type) ====================
+export const getExperience = async () => {
+  try {
+    const response = await api.get('/experience', {
+      params: {
+        populate: '*',
+      },
+    });
+    
+    return formatStrapiData(response.data.data);
+  } catch (error) {
+    console.error('Errore nel caricamento experience:', error);
+    return null;
+  }
+};
+
 export default {
   getGalleryItems,
   getBlogPosts,
@@ -246,4 +262,5 @@ export default {
   getServices,
   getAbout,
   getContactInfo,
+  getExperience,
 };
