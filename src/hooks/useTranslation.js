@@ -44,12 +44,9 @@ export const useTranslation = (component) => {
       return key;
     }
 
-    // Accedi prima alla lingua corrente nel bundle
-    const translations = bundle[locale];
-    if (!translations) {
-      console.warn(`Locale ${locale} not found in bundle for component: ${component}`);
-      return key;
-    }
+    // Gestisci sia bundle con wrapper lingua che senza
+    // Se il bundle ha una chiave "it", usa quella, altrimenti usa direttamente il bundle
+    const translations = bundle[locale] || bundle;
 
     const keys = key.split('.');
     let value = translations;
