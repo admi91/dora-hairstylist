@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_experience_certifications",
+  "info": {
+    "displayName": "Certification",
+    "description": "Certificazione o corso professionale"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "default": "Certificazione Professionale"
+    },
+    "year": {
+      "type": "string",
+      "required": true,
+      "default": "2020"
+    },
+    "institution": {
+      "type": "string",
+      "required": true,
+      "default": "Accademia Italiana"
+    }
+  }
+}

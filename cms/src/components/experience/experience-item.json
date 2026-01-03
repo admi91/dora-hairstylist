@@ -1,0 +1,33 @@
+{
+  "collectionName": "components_experience_experience_items",
+  "info": {
+    "displayName": "Experience Item",
+    "description": "Elemento di esperienza professionale"
+  },
+  "options": {},
+  "attributes": {
+    "year": {
+      "type": "string",
+      "required": true,
+      "default": "2020 - Presente"
+    },
+    "role": {
+      "type": "string",
+      "required": true,
+      "default": "Hair Stylist Professionista"
+    },
+    "company": {
+      "type": "string",
+      "required": true,
+      "default": "Studio Privato"
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "achievements": {
+      "type": "json",
+      "required": false
+    }
+  }
+}

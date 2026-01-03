@@ -1,10 +1,26 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import useTranslation from '../hooks/useTranslation'
+import { getExperience } from '../services/api'
 
 const Experience = () => {
   const { t } = useTranslation('experience');
-  const experiences = [
+  const [experienceData, setExperienceData] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const loadExperience = async () => {
+      const data = await getExperience();
+      if (data) {
+        setExperienceData(data);
+      }
+      setLoading(false);
+    };
+    loadExperience();
+  }, []);
+
+  // Fallback data
+  const fallbackExperiences = [
     {
       year: '2020 - Presente',
       role: t('roles.professionalStylist'),
@@ -16,35 +32,59 @@ const Experience = () => {
         t('achievements.innovativeTechniques')
       ]
     },
-    // Aggiungeremo altre esperienze dal CV
-  ]
+  ];
 
-  const skills = [
-    { name: t('skills.womenCut'), level: 95 },
-    { name: t('skills.menCut'), level: 90 },
-    { name: t('skills.coloring'), level: 98 },
-    { name: t('skills.balayage'), level: 95 },
-    { name: t('skills.hairstyles'), level: 90 },
-    { name: t('skills.treatments'), level: 92 },
-  ]
+  const fallbackSkills = [
+    { name: t('skills.womenCut'), level: 100 },
+    { name: t('skills.menCut'), level: 92 },
+    { name: t('skills.coloring'), level: 100 },
+    { name: t('skills.balayage'), level: 100 },
+    { name: t('skills.hairstyles'), level: 100 },
+    { name: t('skills.treatments'), level: 100 },
+  ];
 
-  const certifications = [
+  const fallbackCertifications = [
     {
       title: t('certificationsList.professionalCertification'),
       year: '2018',
       institution: t('certificationsList.italianAcademy')
     },
-    // Aggiungeremo altre certificazioni dal CV
-  ]
+  ];
+
+  // Usa dati Strapi o fallback
+  const experiences = experienceData?.experiences || fallbackExperiences;
+  const skills = experienceData?.skills || fallbackSkills;
+  const certifications = experienceData?.certifications || fallbackCertifications;
+
+  // Loading skeleton
+  if (loading) {
+    return (
+      <section className="py-20 bg-white">
+        <div className="container-custom">
+          <div className="text-center mb-16">
+            <div className="h-12 bg-gray-200 rounded animate-pulse w-2/3 mx-auto mb-4"></div>
+            <div className="h-6 bg-gray-200 rounded animate-pulse w-1/2 mx-auto"></div>
+          </div>
+          <div className="space-y-8 mb-20">
+            {[1, 2].map((i) => (
+              <div key={i} className="h-40 bg-gray-200 rounded animate-pulse"></div>
+            ))}
+          </div>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section className="py-20 bg-white">
       <div className="container-custom">
         {/* Title */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">{t('title')}</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+            {experienceData?.title || t('title')}
+          </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            {t('subtitle')}
+            {experienceData?.subtitle || t('subtitle')}
           </p>
         </div>
 
@@ -62,7 +102,7 @@ const Experience = () => {
                   </div>
                   <p className="text-gray-700 font-medium mb-3">{exp.company}</p>
                   <p className="text-gray-600 mb-4">{exp.description}</p>
-                  {exp.achievements && (
+                  {exp.achievements && exp.achievements.length > 0 && (
                     <ul className="space-y-2">
                       {exp.achievements.map((achievement, idx) => (
                         <li key={idx} className="flex items-start">
@@ -124,15 +164,17 @@ const Experience = () => {
 
         {/* Call to Action */}
         <div className="mt-16 text-center bg-gradient-to-r from-red-500 to-red-600 rounded-2xl p-12 text-white">
-          <h3 className="text-3xl font-bold mb-4">{t('cta.title')}</h3>
+          <h3 className="text-3xl font-bold mb-4">
+            {experienceData?.ctaTitle || t('cta.title')}
+          </h3>
           <p className="text-xl mb-8 text-red-50">
-            {t('cta.subtitle')}
+            {experienceData?.ctaSubtitle || t('cta.subtitle')}
           </p>
           <Link
             to="/contatti"
             className="bg-white text-red-500 px-8 py-4 rounded-lg font-bold text-lg hover:bg-gray-100 transition-all duration-300 shadow-lg inline-block"
           >
-            {t('cta.button')}
+            {experienceData?.ctaButton || t('cta.button')}
           </Link>
         </div>
       </div>

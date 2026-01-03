@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_experience_skills",
+  "info": {
+    "displayName": "Skill",
+    "description": "Competenza professionale con livello"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "default": "Taglio & Styling"
+    },
+    "level": {
+      "type": "integer",
+      "required": true,
+      "min": 0,
+      "max": 100,
+      "default": 90
+    }
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "kind": "singleType",
+  "collectionName": "experience",
+  "info": {
+    "singularName": "experience",
+    "pluralName": "experiences",
+    "displayName": "Experience",
+    "description": "Sezione Esperienza e Competenze"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "default": "Esperienza & Competenze"
+    },
+    "subtitle": {
+      "type": "text",
+      "default": "Anni di passione, formazione continua e dedizione all'arte dell'hair styling"
+    },
+    "experiences": {
+      "type": "component",
+      "repeatable": true,
+      "component": "experience.experience-item"
+    },
+    "skills": {
+      "type": "component",
+      "repeatable": true,
+      "component": "experience.skill"
+    },
+    "certifications": {
+      "type": "component",
+      "repeatable": true,
+      "component": "experience.certification"
+    },
+    "ctaTitle": {
+      "type": "string",
+      "default": "Pronta a Trasformare il Tuo Look?"
+    },
+    "ctaSubtitle": {
+      "type": "text",
+      "default": "Prenota una consulenza gratuita e scopri il tuo stile ideale"
+    },
+    "ctaButton": {
+      "type": "string",
+      "default": "Prenota Ora"
+    }
+  }
+}
