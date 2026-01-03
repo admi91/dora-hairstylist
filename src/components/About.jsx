@@ -18,6 +18,41 @@ const About = () => {
     loadAbout()
   }, [])
 
+  // Mostra loading state completo senza contenuto
+  if (loading) {
+    return (
+      <section className="py-20 bg-white">
+        <div className="container-custom">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Image Skeleton */}
+            <div className="relative">
+              <div className="aspect-square rounded-lg overflow-hidden bg-gray-100 animate-pulse">
+                <div className="w-full h-full flex items-center justify-center">
+                  <div className="text-gray-400">Caricamento...</div>
+                </div>
+              </div>
+              <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-gray-900 rounded-lg -z-10"></div>
+            </div>
+
+            {/* Content Skeleton */}
+            <div className="space-y-6">
+              <div className="h-12 bg-gray-200 rounded animate-pulse"></div>
+              <div className="space-y-4">
+                <div className="h-4 bg-gray-200 rounded animate-pulse"></div>
+                <div className="h-4 bg-gray-200 rounded animate-pulse w-5/6"></div>
+                <div className="h-4 bg-gray-200 rounded animate-pulse w-4/6"></div>
+              </div>
+              <div className="grid grid-cols-2 gap-6 mt-8">
+                <div className="h-20 bg-gray-200 rounded animate-pulse"></div>
+                <div className="h-20 bg-gray-200 rounded animate-pulse"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    )
+  }
+
   return (
     <section className="py-20 bg-white">
       <div className="container-custom">
@@ -25,11 +60,7 @@ const About = () => {
           {/* Image */}
           <div className="relative">
             <div className="aspect-square rounded-lg overflow-hidden bg-gray-100">
-              {loading ? (
-                <div className="w-full h-full flex items-center justify-center">
-                  <div className="animate-pulse text-gray-400">Caricamento...</div>
-                </div>
-              ) : aboutData?.profileImage ? (
+              {aboutData?.profileImage ? (
                 <img
                   src={aboutData.profileImage}
                   alt={aboutData.title || 'Dora Hairstylist Salon'}
