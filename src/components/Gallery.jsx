@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from 'react'
 import { getGalleryItems } from '../services/api'
 import useTranslation from '../hooks/useTranslation'
+import ImageModal from './ImageModal'
 
 const Gallery = () => {
   const { t } = useTranslation('gallery')
   const [galleryItems, setGalleryItems] = useState([])
   const [loading, setLoading] = useState(true)
+  const [selectedImage, setSelectedImage] = useState(null)
+  const [currentIndex, setCurrentIndex] = useState(0)
+  
   const categories = [
     t('categories.all'),
     t('categories.cuts'),
@@ -28,6 +32,32 @@ const Gallery = () => {
   }, [activeCategory])
 
   const filteredItems = galleryItems
+
+  // Funzioni per il modal
+  const openImage = (item, index) => {
+    setSelectedImage(item)
+    setCurrentIndex(index)
+  }
+
+  const closeImage = () => {
+    setSelectedImage(null)
+  }
+
+  const nextImage = () => {
+    if (currentIndex < filteredItems.length - 1) {
+      const newIndex = currentIndex + 1
+      setCurrentIndex(newIndex)
+      setSelectedImage(filteredItems[newIndex])
+    }
+  }
+
+  const prevImage = () => {
+    if (currentIndex > 0) {
+      const newIndex = currentIndex - 1
+      setCurrentIndex(newIndex)
+      setSelectedImage(filteredItems[newIndex])
+    }
+  }
 
   // Mostra loading state
   if (loading) {
@@ -78,9 +108,10 @@ const Gallery = () => {
               <p className="text-gray-600 text-lg">{t('noImages')}</p>
             </div>
           ) : (
-            filteredItems.map((item) => (
+            filteredItems.map((item, index) => (
               <div
                 key={item.id}
+                onClick={() => openImage(item, index)}
                 className="group relative overflow-hidden rounded-lg aspect-square bg-gray-200 cursor-pointer"
               >
                 {item.image && (
@@ -103,6 +134,18 @@ const Gallery = () => {
             ))
           )}
         </div>
+
+        {/* Image Modal */}
+        {selectedImage && (
+          <ImageModal
+            image={selectedImage}
+            onClose={closeImage}
+            onNext={nextImage}
+            onPrev={prevImage}
+            hasNext={currentIndex < filteredItems.length - 1}
+            hasPrev={currentIndex > 0}
+          />
+        )}
       </div>
     </section>
   )
