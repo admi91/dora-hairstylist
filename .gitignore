@@ -37,3 +37,4 @@ cms/package-lock.json
 cms/yarn.lock
 cms/exports
 cms/*.db
+.env

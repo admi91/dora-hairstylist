@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import { useTranslation } from '../hooks/useTranslation'
 import { getContactInfo } from '../services/api'
+import emailjs from '@emailjs/browser'
 
 const Contact = () => {
   const { t } = useTranslation('contact')
   const [contactInfo, setContactInfo] = useState(null)
   const [loading, setLoading] = useState(true)
+  const [sending, setSending] = useState(false)
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -24,11 +26,34 @@ const Contact = () => {
     loadContactInfo()
   }, [])
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    // Qui puoi aggiungere la logica per inviare il form
-    alert(t('form.successMessage'))
-    setFormData({ name: '', email: '', phone: '', message: '' })
+    setSending(true)
+
+    try {
+      // Configurazione EmailJS - Sostituisci con le tue credenziali
+      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID || 'YOUR_SERVICE_ID'
+      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 'YOUR_TEMPLATE_ID'
+      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'YOUR_PUBLIC_KEY'
+
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        phone: formData.phone || 'Non fornito',
+        message: formData.message,
+        to_email: contactInfo?.email || 'dorabozintan@gmail.com'
+      }
+
+      await emailjs.send(serviceId, templateId, templateParams, publicKey)
+      
+      alert(t('form.successMessage') || '✅ Messaggio inviato con successo! Ti risponderemo presto.')
+      setFormData({ name: '', email: '', phone: '', message: '' })
+    } catch (error) {
+      console.error('Errore invio email:', error)
+      alert(t('form.errorMessage') || '❌ Errore nell\'invio del messaggio. Riprova o contattaci direttamente.')
+    } finally {
+      setSending(false)
+    }
   }
 
   const handleChange = (e) => {
@@ -112,8 +137,22 @@ const Contact = () => {
                 ></textarea>
               </div>
 
-              <button type="submit" className="btn-primary w-full">
-                {t('form.submit')}
+              <button 
+                type="submit" 
+                disabled={sending}
+                className={`btn-primary w-full ${sending ? 'opacity-70 cursor-not-allowed' : ''}`}
+              >
+                {sending ? (
+                  <span className="flex items-center justify-center">
+                    <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    Invio in corso...
+                  </span>
+                ) : (
+                  t('form.submit')
+                )}
               </button>
             </form>
           </div>
